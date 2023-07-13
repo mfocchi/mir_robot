@@ -3,7 +3,7 @@ mobile_base_controller:
   type        : "diff_drive_controller/DiffDriveController"
   left_wheel  : '$(arg prefix)left_wheel_joint'
   right_wheel : '$(arg prefix)right_wheel_joint'
-  publish_rate: 41.2               # this is what the real MiR platform publishes (default: 50)
+  publish_rate: 1000               # this is what the real MiR platform publishes (default: 50)
   # These covariances are exactly what the real MiR platform publishes
   pose_covariance_diagonal : [0.00001, 0.00001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
   twist_covariance_diagonal: [0.1, 0.1, 1000000.0, 1000000.0, 1000000.0, 1000.0]
@@ -34,11 +34,11 @@ mobile_base_controller:
     x:
       has_velocity_limits    : false
       max_velocity           : 1.0  # m/s; move_base max_vel_x: 0.8
-      has_acceleration_limits: true
+      has_acceleration_limits: false
       max_acceleration       : 2.0  # m/s^2; move_base acc_lim_x: 1.5
   angular:
     z:
       has_velocity_limits    : false
       max_velocity           : 1.5  # rad/s; move_base max_rot_vel: 1.0
-      has_acceleration_limits: true
+      has_acceleration_limits: false
       max_acceleration       : 2.5  # rad/s^2; move_base acc_lim_th: 2.0
